@@ -1,0 +1,32 @@
+header {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+
+  .logo {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .links {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .link {
+      color: white;
+      font-size: 20px;
+      padding: 0 20px;
+    &:hover{
+      color:yellow;
+    }
+    }
+  }
+
+}

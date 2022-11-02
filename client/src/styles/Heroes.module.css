@@ -1,0 +1,49 @@
+.main {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.main .heroes {
+  flex: 0 80%;
+}
+
+.hero {
+  color: white;
+  display: inline-block;
+  max-width: 120px;
+}
+.hero .hero__view {
+  border: 5px solid gold;
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  margin-left: 10px;
+}
+.hero .hero__view .legendary {
+  max-width: 100%;
+  border: 5px solid yellow;
+}
+.hero .hero__view .epic {
+  max-width: 100%;
+  border: 5px solid purple;
+}
+.hero .hero__view .rare {
+  max-width: 100%;
+  border: 5px solid blue;
+}
+.hero .hero__view .common {
+  max-width: 100%;
+  border: 5px solid #676464;
+}
+.hero .hero__view .ava {
+  max-width: 100%;
+}
+.hero .hero__view .affinity {
+  width: 30%;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+/*# sourceMappingURL=Heroes.module.css.map */

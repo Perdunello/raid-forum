@@ -1,0 +1,55 @@
+.main {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  .heroes {
+    flex: 0 80%;
+
+  }
+}
+
+.hero {
+  color:white;
+  display: inline-block;
+  max-width: 120px;
+
+  .hero__view {
+    border: 5px solid gold;
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    margin-left: 10px;
+
+    .legendary {
+      max-width: 100%;
+      border: 5px solid yellow
+    }
+
+    .epic {
+      max-width: 100%;
+      border: 5px solid purple;
+    }
+
+    .rare {
+      max-width: 100%;
+      border: 5px solid blue;
+    }
+
+    .common {
+      max-width: 100%;
+      border: 5px solid #676464;
+    }
+
+    .ava {
+      max-width: 100%;
+    }
+
+    .affinity {
+      width: 30%;
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+header {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+}
+header .logo {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .links .link {
+  color: white;
+  font-size: 20px;
+  padding: 0 20px;
+}
+header .links .link:hover {
+  color: yellow;
+}
+
+/*# sourceMappingURL=Header.module.css.map */
