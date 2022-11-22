@@ -3,7 +3,6 @@ const db = require('../DB')
 class HeroesController {
     async getAllChampionsAvatars(req, res) {
         const que = `SELECT id,name,avatar_link,affinity,rarity FROM hero`
-        // const que1 = `--SELECT H.id, H.name,H.avatar,H.affinity,H.rarity,H.role, P.HP,P.Attack,P.Defense,P.Speed,P.CritRate,P.CritDamage,P.Resistance,P.Accuracy,S.name,S.image,S.text,S.cooldown FROM hero as H, param as P,skill as S WHERE H.param_id=P.id AND H.id=S.hero_id`
         await db.query(que, async (err, response) => {
             res.header({
                 "Access-Control-Allow-Origin": "*"

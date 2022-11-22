@@ -2,16 +2,16 @@ import styles from "../styles/Login.module.scss";
 import {useState} from "react";
 import {Navigate, NavLink} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {isExistAccount, signUp} from "../api/api";
+import {isExistAccount} from "../api/api";
 import {useDispatch, useSelector} from "react-redux";
-import {setAuth} from "../redux/LoginReducer";
+import {signUpRequest} from "../redux/LoginReducer";
 
 const Signup = () => {
     const {register, handleSubmit, reset, formState: {errors}} = useForm({mode: 'onBlur'})
 
     const dispatch = useDispatch()
     const isAuth = useSelector(state => state.login.isAuth)
-
+    console.log(isAuth)
     const [password, setPassword] = useState('')
     const [copyPassword, setCopyPassword] = useState('')
     const [isExistEmail, setIsExistEmail] = useState(false)
@@ -26,9 +26,8 @@ const Signup = () => {
             }
             if (data.password === data.copyPassword && !isExist) {
                 delete data.copyPassword;
-                signUp(data)
+                dispatch(signUpRequest(data))
                 reset()
-                dispatch(setAuth(data))
             }
         });
     }
@@ -47,7 +46,7 @@ const Signup = () => {
     const isSamePasswords = () => {
         return password !== copyPassword
     }
-    if (!isAuth) {
+    if (isAuth) {
         return <Navigate to={'/'}/>
     }
     return <div className={styles.main}>

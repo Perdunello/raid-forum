@@ -12,7 +12,7 @@ const Header = () => {
             </NavLink>
             <li className={styles.link}>Bla-Bla</li>
             <li className={styles.link}>Blu-Blu</li>
-            {isAuth
+            {!isAuth
                 ? <NavLink to={'/login'}>
                     <li className={styles.link}>Login</li>
                 </NavLink>
