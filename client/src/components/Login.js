@@ -1,12 +1,11 @@
 import styles from '../styles/Login.module.scss'
-import {useRef, useState} from "react";
+import {useState} from "react";
 import {Navigate, NavLink} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {logInRequest} from "../redux/LoginReducer";
 
 const Login = () => {
-    const inputRef = useRef()
     const {handleSubmit, register} = useForm({mode: "onBlur"})
     const dispatch = useDispatch()
     const isAuth = useSelector(state => state.login.isAuth)

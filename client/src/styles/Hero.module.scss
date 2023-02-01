@@ -2,6 +2,7 @@
   margin-top: 50px;
   display: grid;
   grid-template-columns: 2fr 2fr 3fr;
+  flex-wrap: wrap;
 
   .paramsWrapper:nth-child(1) {
     margin: 0 auto;
@@ -9,9 +10,16 @@
 
   .midPart {
     color: white;
-    //background-color: #4d4c4c;
     border-radius: 25px 25px 0 0;
-    //padding-top: 20px;
+
+    .avatarWrapper {
+      margin: 40px auto 0 auto;
+      width: 200px;
+      height: 260px;
+      animation: ease-out 2.5s noImg infinite;
+
+    }
+
     .legendary {
       border: 5px solid gold
     }
@@ -24,14 +32,17 @@
       border: 5px solid blue;
     }
 
+    .uncommon {
+      max-width: 100%;
+      border: 5px solid green;
+    }
+
     .common {
       border: 5px solid #676464;
     }
 
     .mainInfo {
-      //margin: 40px 20px 0 20px;
-      //margin-left: 20px;
-      //margin-top: 40px;
+      margin-top: 30px;
       display: flex;
       justify-content: center;
 
@@ -68,6 +79,7 @@
     text-align: start;
     border-radius: 25px 25px 0 0;
     padding: 20px 0;
+
     .param {
       display: grid;
       grid-template-columns: 3fr 1fr;
@@ -91,8 +103,17 @@
     color: #afacac;
     line-height: 22px;
     border-radius: 25px 25px 0 0;
+
     .skills {
       position: relative;
+
+      .noImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #acc1e1;
+        animation: ease-out 2.5s noImg infinite;
+      }
 
       .skillSimple {
         width: 100px;
@@ -141,5 +162,23 @@
         }
       }
     }
+  }
+}
+
+@keyframes noImg {
+  0% {
+    background: gray;
+  }
+  50% {
+    background: #c0c0c0;
+  }
+  100% {
+    background: gray;
+  }
+}
+@media (width<1300px) {
+  .main{
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -1,0 +1,68 @@
+.main {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+.main .messagesWrapper {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  border-bottom: 2px solid #6c2d2d;
+}
+.main .messagesWrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.main .messagesWrapper::-webkit-scrollbar-track {
+  background-color: #8a8783;
+  border-radius: 10px;
+}
+.main .messagesWrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #413f3f;
+}
+.main .newMessageWrapper {
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+}
+.main .newMessageWrapper .avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  background-size: cover;
+  padding: 5px;
+}
+.main .newMessageWrapper .textarea {
+  background: #676464;
+  border: 1px solid black;
+  color: white;
+  font-size: 14px;
+  width: 500px;
+  height: 80px;
+  padding-left: 20px;
+  resize: none;
+  overflow-y: scroll;
+}
+.main .newMessageWrapper .textarea::placeholder {
+  color: #a8a8a8;
+}
+.main .newMessageWrapper .textarea:focus {
+  outline: 0;
+}
+.main .newMessageWrapper .textarea::-webkit-scrollbar {
+  width: 5px;
+}
+.main .newMessageWrapper .textarea::-webkit-scrollbar-track {
+  background-color: #8a8783;
+  border-radius: 10px;
+}
+.main .newMessageWrapper .textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #413f3f;
+}
+
+/*# sourceMappingURL=Forum.module.css.map */

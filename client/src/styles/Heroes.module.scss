@@ -1,48 +1,52 @@
 .main {
-  width: 70%;
+  width: 90%;
+  padding: 0 1px;
   margin: auto;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  color: white;
+
+  .filtersWrapper {
+    width: 500px;
+    text-align: start;
+    border: 2px solid #0057ff;
+  }
+
   .heroes {
-    flex: 0 80%;
+    margin-top: 50px;
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
   }
 }
 
 .hero {
-  color:white;
+  color: white;
   display: inline-block;
   max-width: 120px;
 
+  .name {
+    text-align: center;
+  }
+
   .hero__view {
-    border: 5px solid gold;
     display: inline-block;
     line-height: 0;
     position: relative;
     margin-left: 10px;
 
-    .legendary {
-      max-width: 100%;
-      border: 5px solid yellow
-    }
+    .avatarWrapper {
+      width: 100px;
+      height: 130px;
+      //background: #acc1e1;
+      animation: ease-out 2.5s noAvatar infinite;
 
-    .epic {
-      max-width: 100%;
-      border: 5px solid purple;
-    }
-
-    .rare {
-      max-width: 100%;
-      border: 5px solid blue;
-    }
-
-    .common {
-      max-width: 100%;
-      border: 5px solid #676464;
-    }
-
-    .ava {
-      max-width: 100%;
+      .ava {
+        max-width: 100%;
+      }
     }
 
     .affinity {
@@ -50,6 +54,62 @@
       position: absolute;
       bottom: 5%;
       left: 5%;
+    }
+  }
+
+  .legendary {
+    max-width: 100%;
+    border: 5px solid gold
+  }
+
+  .epic {
+    max-width: 100%;
+    border: 5px solid #8d048d;
+  }
+
+  .rare {
+    max-width: 100%;
+    border: 5px solid blue;
+  }
+
+  .uncommon {
+    max-width: 100%;
+    border: 5px solid green;
+  }
+
+  .common {
+    max-width: 100%;
+    border: 5px solid #676464;
+  }
+}
+
+@keyframes noAvatar {
+  0% {
+    background: gray;
+  }
+  50% {
+    background: #c0c0c0;
+  }
+  100% {
+    background: gray;
+  }
+}
+
+@media (width<1000px) {
+  .main {
+    display: flex;
+    text-align: center;
+
+    .heroes {
+      justify-content: center;
+    }
+  }
+}
+
+@media (width<900px) {
+  .main {
+    .filtersWrapper {
+      min-width: 200px;
     }
   }
 }

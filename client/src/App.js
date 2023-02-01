@@ -9,13 +9,23 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Account from "./components/Account";
+import Forum from "./components/Forum";
+import {setAuth} from "./redux/LoginReducer";
+import {getCookie} from "./api/cookies";
 
 function App() {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllAvatars())
+        if (getCookie('id') && getCookie('name') && getCookie('email') && getCookie('password')) {
+            dispatch(setAuth({
+                id: getCookie('id'),
+                name: getCookie('name'),
+                email: getCookie('email'),
+                password: getCookie('password')
+            }))
+        }
     }, [])
-
     return (
         <div className="App">
             <Header/>
@@ -24,9 +34,9 @@ function App() {
                 <Route path={`/champions/:id`} element={<Hero/>}/>
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/signup'} element={<Signup/>}/>
-                <Route path={'myaccount'} element={<Account/>}/>
+                <Route path={'/myaccount'} element={<Account/>}/>
+                <Route path={'/forum'} element={<Forum/>}/>
             </Routes>
-            {/*<Hero/>*/}
         </div>
     );
 }

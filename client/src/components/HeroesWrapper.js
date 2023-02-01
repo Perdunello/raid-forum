@@ -17,7 +17,7 @@ const HeroesWrapper = () => {
         return <div>wait....</div>
     }
     return <div className={styles.main}>
-        <div>
+        <div className={styles.filtersWrapper}>
             Filters
         </div>
         <div className={styles.heroes}>{

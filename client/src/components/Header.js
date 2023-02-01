@@ -10,7 +10,9 @@ const Header = () => {
             <NavLink to={`/champions/`}>
                 <li className={styles.link}>Heroes</li>
             </NavLink>
-            <li className={styles.link}>Bla-Bla</li>
+            <NavLink to={`/forum/`}>
+                <li className={styles.link}>Forum</li>
+            </NavLink>
             <li className={styles.link}>Blu-Blu</li>
             {!isAuth
                 ? <NavLink to={'/login'}>

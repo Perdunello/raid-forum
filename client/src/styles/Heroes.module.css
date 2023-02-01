@@ -1,11 +1,23 @@
 .main {
-  width: 70%;
+  width: 90%;
+  padding: 0 1px;
   margin: auto;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  color: white;
+}
+.main .filtersWrapper {
+  width: 500px;
+  text-align: start;
+  border: 2px solid #0057ff;
 }
 .main .heroes {
-  flex: 0 80%;
+  margin-top: 50px;
+  text-align: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .hero {
@@ -13,30 +25,21 @@
   display: inline-block;
   max-width: 120px;
 }
+.hero .name {
+  text-align: center;
+}
 .hero .hero__view {
-  border: 5px solid gold;
   display: inline-block;
   line-height: 0;
   position: relative;
   margin-left: 10px;
 }
-.hero .hero__view .legendary {
-  max-width: 100%;
-  border: 5px solid yellow;
+.hero .hero__view .avatarWrapper {
+  width: 100px;
+  height: 130px;
+  animation: ease-out 2.5s noAvatar infinite;
 }
-.hero .hero__view .epic {
-  max-width: 100%;
-  border: 5px solid purple;
-}
-.hero .hero__view .rare {
-  max-width: 100%;
-  border: 5px solid blue;
-}
-.hero .hero__view .common {
-  max-width: 100%;
-  border: 5px solid #676464;
-}
-.hero .hero__view .ava {
+.hero .hero__view .avatarWrapper .ava {
   max-width: 100%;
 }
 .hero .hero__view .affinity {
@@ -44,6 +47,52 @@
   position: absolute;
   bottom: 5%;
   left: 5%;
+}
+.hero .legendary {
+  max-width: 100%;
+  border: 5px solid gold;
+}
+.hero .epic {
+  max-width: 100%;
+  border: 5px solid #8d048d;
+}
+.hero .rare {
+  max-width: 100%;
+  border: 5px solid blue;
+}
+.hero .uncommon {
+  max-width: 100%;
+  border: 5px solid green;
+}
+.hero .common {
+  max-width: 100%;
+  border: 5px solid #676464;
+}
+
+@keyframes noAvatar {
+  0% {
+    background: gray;
+  }
+  50% {
+    background: #c0c0c0;
+  }
+  100% {
+    background: gray;
+  }
+}
+@media (width < 1000px) {
+  .main {
+    display: flex;
+    text-align: center;
+  }
+  .main .heroes {
+    justify-content: center;
+  }
+}
+@media (width < 900px) {
+  .main .filtersWrapper {
+    min-width: 200px;
+  }
 }
 
 /*# sourceMappingURL=Heroes.module.css.map */

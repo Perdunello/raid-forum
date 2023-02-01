@@ -1,8 +1,8 @@
 const Router = require('express')
-const LoginisationRouter = new Router()
+const loginisationRouter = new Router()
 const loginisationController = require('../controller/loginisation.controller')
 
-LoginisationRouter.post('/signup', loginisationController.signUp)
-LoginisationRouter.get('/isexistaccount/:email', loginisationController.isExistAccount)
-LoginisationRouter.get('/login/:email&:password', loginisationController.login)
-module.exports = LoginisationRouter
+loginisationRouter.post('/signup', loginisationController.signUp)
+loginisationRouter.get('/isexistaccount/:email', loginisationController.isExistAccount)
+loginisationRouter.get('/login/:email&:password', loginisationController.login)
+module.exports = loginisationRouter

@@ -7,11 +7,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {signUpRequest} from "../redux/LoginReducer";
 
 const Signup = () => {
+
     const {register, handleSubmit, reset, formState: {errors}} = useForm({mode: 'onBlur'})
 
     const dispatch = useDispatch()
     const isAuth = useSelector(state => state.login.isAuth)
-    console.log(isAuth)
     const [password, setPassword] = useState('')
     const [copyPassword, setCopyPassword] = useState('')
     const [isExistEmail, setIsExistEmail] = useState(false)
@@ -46,6 +46,7 @@ const Signup = () => {
     const isSamePasswords = () => {
         return password !== copyPassword
     }
+    //if not authorized
     if (isAuth) {
         return <Navigate to={'/'}/>
     }
