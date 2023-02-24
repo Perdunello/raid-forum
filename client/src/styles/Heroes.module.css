@@ -1,98 +1,218 @@
 .main {
-  width: 90%;
-  padding: 0 1px;
-  margin: auto;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  color: white;
+    width: 70%;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
 }
+
 .main .filtersWrapper {
-  width: 500px;
-  text-align: start;
-  border: 2px solid #0057ff;
+    flex: 1;
+    text-align: start;
 }
+
+.main .filtersWrapper .filterWrapper {
+    cursor: pointer;
+}
+
+.main .filtersWrapper .filterWrapper .nameFilter {
+    font-size: 24px;
+}
+
+.main .filtersWrapper .filterWrapper .rotatedArrow {
+    position: relative;
+    bottom: 0;
+    width: 24px;
+    height: 24px;
+    transform: rotateZ(90deg);
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper {
+    display: flex;
+    margin-top: 12px;
+    position: relative;
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper .inputSearch {
+    width: 100%;
+    background: #313539;
+    border: 0;
+    border-bottom: 1px solid #6c757d;
+    padding: 12px 12px 12px 20px;
+    -webkit-appearance: none;
+    caret-color: white;
+    color: white;
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper .inputSearch::placeholder {
+    color: gray;
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper .inputSearch:focus {
+    outline: 0;
+    border-bottom: 1px solid white;
+    animation: searchBorder 0.2s linear;
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper .inputSearch::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+.main .filtersWrapper .filterWrapper .searchWrapper .loupe {
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 1%;
+    border: 2px solid white;
+    background: #000000;
+    line-height: 28px;
+}
+
+.main .filtersWrapper .filterWrapper .filter {
+    font-size: 18px;
+    border-bottom: 1px solid white;
+    padding: 12px 0 12px 0;
+}
+
+.main .filtersWrapper .filterWrapper .filter:hover {
+    cursor: pointer;
+    animation: hoverFilter linear 0.2s;
+    color: #6c757d;
+}
+
+.main .filtersWrapper .filterWrapper .activeFilter {
+    color: red;
+}
+
+.main .filtersWrapper .resetButton {
+    width: 100%;
+    border: 1px solid #31b0d5;
+    border-radius: 5px;
+    color: #31b0d5;
+    background: black;
+    padding: 16px 70px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .main .heroes {
-  margin-top: 50px;
-  text-align: start;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+    margin-top: 50px;
+    flex: 3;
+    margin-left: 5%;
+}
+
+.main .heroes .countHeroes {
+    text-align: start;
+    font-size: 34px;
+}
+
+.main .heroes .heroesWrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    justify-content: center;
 }
 
 .hero {
-  color: white;
-  display: inline-block;
-  max-width: 120px;
+    color: white;
+    display: inline-block;
+    max-width: 120px;
 }
+
 .hero .name {
-  text-align: center;
+    text-align: center;
 }
+
 .hero .hero__view {
-  display: inline-block;
-  line-height: 0;
-  position: relative;
-  margin-left: 10px;
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    margin-left: 10px;
 }
+
 .hero .hero__view .avatarWrapper {
-  width: 100px;
-  height: 130px;
-  animation: ease-out 2.5s noAvatar infinite;
+    width: 100px;
+    height: 130px;
+    animation: ease-out 2.5s noAvatar infinite;
 }
+
 .hero .hero__view .avatarWrapper .ava {
-  max-width: 100%;
+    max-width: 100%;
 }
+
 .hero .hero__view .affinity {
-  width: 30%;
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
+    width: 30%;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
 }
+
 .hero .legendary {
-  max-width: 100%;
-  border: 5px solid gold;
+    max-width: 100%;
+    border: 5px solid gold;
 }
+
 .hero .epic {
-  max-width: 100%;
-  border: 5px solid #8d048d;
+    max-width: 100%;
+    border: 5px solid #8d048d;
 }
+
 .hero .rare {
-  max-width: 100%;
-  border: 5px solid blue;
+    max-width: 100%;
+    border: 5px solid blue;
 }
+
 .hero .uncommon {
-  max-width: 100%;
-  border: 5px solid green;
+    max-width: 100%;
+    border: 5px solid green;
 }
+
 .hero .common {
-  max-width: 100%;
-  border: 5px solid #676464;
+    max-width: 100%;
+    border: 5px solid #676464;
 }
 
 @keyframes noAvatar {
-  0% {
-    background: gray;
-  }
-  50% {
-    background: #c0c0c0;
-  }
-  100% {
-    background: gray;
-  }
+    0% {
+        background: gray;
+    }
+    50% {
+        background: #c0c0c0;
+    }
+    100% {
+        background: gray;
+    }
 }
-@media (width < 1000px) {
-  .main {
-    display: flex;
-    text-align: center;
-  }
-  .main .heroes {
-    justify-content: center;
-  }
+
+@keyframes hoverFilter {
+    0% {
+        color: white;
+    }
+    100% {
+        color: #6c757d;
+    }
 }
-@media (width < 900px) {
-  .main .filtersWrapper {
-    min-width: 200px;
-  }
+
+@keyframes searchBorder {
+    0% {
+        border-bottom: 1px solid #6c757d;
+    }
+    100% {
+        border-bottom: 1px solid white;
+    }
+}
+
+@media (width < 650px
+
+) {
+    .main {
+        flex-direction: column;
+    }
 }
 
 /*# sourceMappingURL=Heroes.module.css.map */

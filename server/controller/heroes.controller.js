@@ -2,29 +2,42 @@ const db = require('../DB')
 
 class HeroesController {
     async getAllChampionsAvatars(req, res) {
-        const que = `SELECT id,name,avatar_link,affinity,rarity FROM hero`
+
+        let str = ''
+        //create WHERE
+        for (let queryKey in req.query) {
+            str += queryKey + ' = ' + `'${req.query[queryKey]}'` + ' AND '
+        }
+        str ? str = (' WHERE '.concat(str)).slice(0, ' WHERE '.concat(str).length - 4) : ''
+
+        const que = `SELECT id,name,avatar_link,affinity,rarity,role FROM hero ${str} `
+
         await db.query(que, async (err, response) => {
             res.header({
                 "Access-Control-Allow-Origin": "*"
             })
-            res.json(response.map(item => {
-                        return {
-                            id: item.id,
-                            name: item.name,
-                            avatar: item.avatar_link,
-                            // Buffer.from(item.avatar).toString('base64'),
-                            affinity: item.affinity,
-                            rarity: item.rarity
+            if (!err) {
+                res.json(response.map(item => {
+                            return {
+                                id: item.id,
+                                name: item.name,
+                                avatar: item.avatar_link,
+                                // Buffer.from(item.avatar).toString('base64'),
+                                affinity: item.affinity,
+                                rarity: item.rarity,
+                                role: item.role
+                            }
                         }
-                    }
+                    )
                 )
-            )
+            } else {
+                res.json({result: 'No one hero'})
+            }
         })
     }
 
     async getAllChampionData(req, res) {
         const id = req.params.id.replace(/[^0-9]/, "")
-
         const queryMainInfo = `SELECT H.id, H.name, H.avatar_link,H.faction,H.affinity, H.rarity,H.role FROM hero as H WHERE id=${id}`
         await db.query(queryMainInfo, async (err, response1) => {
             if (!err) {

@@ -14,8 +14,7 @@ const Account = () => {
 
     }
     const setImg = (e) => {
-        console.log(e.target.value)
-        setAvatar(e.target.value)
+        setAvatar(e.target.files[0])
     }
 
     if (!isAuth) {
@@ -24,9 +23,8 @@ const Account = () => {
     return <div>
         <form onSubmit={handleSubmit(onSubmit)}>
             <input type="submit" value={'Log out'}/>
-            {/*<button onClick={logOut}>Log out</button>*/}
             <input type="file" onChange={setImg}/>
-            <img src={avatar} alt="photo preview"/>
+            {avatar && <img src={URL.createObjectURL(avatar)} width={'200px'} height={'auto'} alt={avatar.name}/>}
         </form>
     </div>
 }

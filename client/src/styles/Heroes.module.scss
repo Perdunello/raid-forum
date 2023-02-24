@@ -1,25 +1,127 @@
 .main {
-  width: 90%;
-  padding: 0 1px;
-  margin: auto;
-  box-sizing: border-box;
+  width: 70%;
+  //height: 1000px;
+  margin: 50px auto 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  //flex-direction: column;
+  //justify-content: space-between;
   color: white;
 
   .filtersWrapper {
-    width: 500px;
+    flex: 1;
     text-align: start;
-    border: 2px solid #0057ff;
+    //border: 2px solid #0057ff;
+
+    .filterWrapper {
+      cursor: pointer;
+      .nameFilter {
+        font-size: 24px;
+      }
+      .rotatedArrow{
+        position: relative;
+        bottom: 0;
+        width: 24px;
+        height: 24px;
+        transform: rotateZ(90deg);
+      }
+
+      .searchWrapper {
+        display: flex;
+        margin-top: 12px;
+        position: relative;
+
+        .inputSearch {
+          width: 100%;
+          background: #313539;
+          border: 0;
+          border-bottom: 1px solid #6c757d;
+          padding: 12px 12px 12px 20px;
+          -webkit-appearance: none;
+          caret-color: white;
+          color: white;
+
+          &::placeholder {
+            color: gray;
+          }
+
+          &:focus {
+            outline: 0;
+            border-bottom: 1px solid white;
+            animation: searchBorder 0.2s linear;
+          }
+
+          &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+          }
+        }
+
+        .loupe {
+          height: 100%;
+          width: 50px;
+          //width: ;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 0;
+          bottom: 1%;
+          border: 2px solid white;
+          background: #000000;
+          line-height: 28px;
+        }
+      }
+
+      .filter {
+        font-size: 18px;
+        border-bottom: 1px solid white;
+        padding: 12px 0 12px 0;
+        //margin-left: 30px;
+
+        &:hover {
+          cursor: pointer;
+          animation: hoverFilter linear 0.2s;
+          color: #6c757d;
+        }
+      }
+
+      .activeFilter {
+        color: red;
+      }
+    }
+
+    .resetButton {
+      width: 100%;
+      border: 1px solid #31b0d5;
+      border-radius: 5px;
+      color: #31b0d5;
+      background: black;
+      padding: 16px 70px;
+      font-weight: bold;
+      font-size: 16px;
+    }
   }
 
   .heroes {
     margin-top: 50px;
-    text-align: start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex: 3;
+    margin-left: 5%;
 
+    .countHeroes {
+      //margin-left: 1%;
+      text-align: start;
+      font-size: 34px;
+    }
+
+    .heroesWrapper {
+      margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      //gap: 8px;
+      row-gap: 16px;
+      justify-content: center;
+
+    }
   }
 }
 
@@ -83,6 +185,7 @@
   }
 }
 
+
 @keyframes noAvatar {
   0% {
     background: gray;
@@ -95,21 +198,27 @@
   }
 }
 
-@media (width<1000px) {
-  .main {
-    display: flex;
-    text-align: center;
-
-    .heroes {
-      justify-content: center;
-    }
+@keyframes hoverFilter {
+  0% {
+    color: white;
+  }
+  100% {
+    color: #6c757d;
   }
 }
 
-@media (width<900px) {
-  .main {
-    .filtersWrapper {
-      min-width: 200px;
-    }
+@keyframes searchBorder {
+  0% {
+    border-bottom: 1px solid #6c757d;
+  }
+  100% {
+    border-bottom: 1px solid white;
   }
 }
+
+@media (width<650px) {
+  .main {
+    flex-direction: column;
+  }
+}
+

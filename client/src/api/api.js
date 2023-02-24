@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 export const getAllAvatarsAPI = () => {
-    return axios.get('http://localhost:3001/champions/allChampionsAvatars').then(response => response)
+    return axios.get(`http://localhost:3001/champions/allChampionsAvatars?`).then(response => response)
 }
 export const getHeroAPI = (id) => {
-    return axios.get(`http://localhost:3001/champions/champion/${id}`).then(response => response)
+    return axios.get(`http://localhost:3001/champions/${id}`).then(response => response)
 }
 export const signUp = (data) => {
     return axios.post(`http://localhost:3001/loginisation/signup`, data,

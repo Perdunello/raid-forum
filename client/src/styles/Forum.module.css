@@ -16,12 +16,12 @@
   width: 5px;
 }
 .main .messagesWrapper::-webkit-scrollbar-track {
-  background-color: #8a8783;
+  background-color: #413f3f;
   border-radius: 10px;
 }
 .main .messagesWrapper::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #413f3f;
+  background-color: #8a8783;
 }
 .main .newMessageWrapper {
   display: flex;

@@ -13,17 +13,16 @@ const HeroView = ({hero}) => {
                             ? styles.uncommon
                             : styles.common].join(' ')}>
             <div className={styles.avatarWrapper}>
-                <img src={hero.avatar} alt="" className={styles.ava}/>
-                {/*<img src="/heroes/Rotos-the-Lost-Groom/Rotos_the_Lost_Groom.png" className={styles.ava} alt=""/>*/}
+                <img src={hero.avatar} alt={`${hero.name} avatar`} className={styles.ava}/>
             </div>
             <img className={styles.affinity}
                  src={hero.affinity === 'Magic'
-                     ? '/affinities/magic.png' : hero.affinity === 'Spirit'
-                         ? '/affinities/spirit.png' : hero.affinity === 'Force'
-                             ? '/affinities/force.png' : '/affinities/void.png'}
-                 width={'30%'} alt=""/>
+                     ? '/champions/affinities/magic.png' : hero.affinity === 'Spirit'
+                         ? '/champions/affinities/spirit.png' : hero.affinity === 'Force'
+                             ? '/champions/affinities/force.png' : '/champions/affinities/void.png'}
+                 width={'30%'} alt={`${hero.affinity} affinity`}/>
         </div>
-        <div className={styles.name} style={{marginTop:'15px'}}>{hero.name}</div>
+        <div className={styles.name} style={{marginTop: '15px'}}>{hero.name}</div>
     </div>
 }
 

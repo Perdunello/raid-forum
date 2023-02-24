@@ -4,9 +4,11 @@ class ForumController {
     async getMessages(sockets) {
         const que = `SELECT * FROM (SELECT F.id, A.id as account_id, A.name, F.message, F.time, F.date FROM forum_messages as F, accounts as A WHERE A.id=F.account_id ORDER BY F.id DESC LIMIT 10) as F ORDER BY F.id`
         await db.query(que, async (err, response) => {
-            sockets.map(sock => {
-                sock.emit('get-messages', response)
-            })
+            if (sockets){
+                sockets.map(sock => {
+                    sock.emit('get-messages', response)
+                })
+            }
         })
     }
 
