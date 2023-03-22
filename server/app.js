@@ -8,10 +8,12 @@ const cors = require('cors')
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const forumRouter = require("./routes/forum.routes");
+const artifactsRouter = require("./routes/artifacts.routes");
 
 app.use(bodyParser.json());
 app.use(cors())
 app.use('/champions', heroesRouter)
+app.use('/artifacts', artifactsRouter)
 app.use('/loginisation', loginisationRouter)
 app.use('/forum', forumRouter)
 app.use(express.json())

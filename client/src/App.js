@@ -12,6 +12,9 @@ import Account from "./components/Account";
 import Forum from "./components/Forum";
 import {setAuth} from "./redux/LoginReducer";
 import {getCookie} from "./api/cookies";
+import Sets from "./components/Sets";
+import Footer from "./components/Fotter";
+import Artifacts from "./components/Artifacts";
 
 function App() {
     const dispatch = useDispatch()
@@ -36,7 +39,10 @@ function App() {
                 <Route path={'/signup'} element={<Signup/>}/>
                 <Route path={'/myaccount'} element={<Account/>}/>
                 <Route path={'/forum'} element={<Forum/>}/>
+                <Route path={'/artifacts'} element={<Sets/>}/>
+                <Route path={'/artifacts/:id'} element={<Artifacts/>}/>
             </Routes>
+            <Footer/>
         </div>
     );
 }

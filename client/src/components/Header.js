@@ -13,7 +13,9 @@ const Header = () => {
             <NavLink to={`/forum/`}>
                 <li className={styles.link}>Forum</li>
             </NavLink>
-            <li className={styles.link}>Blu-Blu</li>
+            <NavLink to={`/artifacts/`}>
+                <li className={styles.link}>Artifacts</li>
+            </NavLink>
             {!isAuth
                 ? <NavLink to={'/login'}>
                     <li className={styles.link}>Login</li>

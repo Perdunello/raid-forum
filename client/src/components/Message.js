@@ -6,7 +6,6 @@ const Message = ({message}) => {
     const authData = useSelector(state => state.login.authData)
     const date = new Date(message.date)
     const normalizeDate = normalize(date.getFullYear()) + ' ' + date.toLocaleString('en', {month: 'long'}).slice(0, 3) + ' ' + normalize(date.getDate())
-    console.log('remder')
     if (Number(authData.id) !== message.account_id) {//hear must be id
         return <div style={{display: 'flex', margin: '30px 0 30px 15px'}}>
             <div>
