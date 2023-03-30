@@ -35,6 +35,14 @@ export const getSetsIcons = () => {
 export const getSet = (id) => {
     return axios.get(`http://localhost:3001/artifacts/${id}`).then(response => response)
 }
-// export const getMessages = () => {
-//     return axios.get('http://localhost:3001/forum/messages').then(response => response)
-// }
+export const sendAvatarUser = (avatar, userId) => {
+    return axios.post(`http://localhost:3001/loginisation/avatarUpload/${userId}`, avatar, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+        }
+    }).then(response => response)
+}
+export const getAvatar = (userId) => {
+    return axios.get(`http://localhost:3001/loginisation/getavatar/${userId}`).then(response => response)
+}

@@ -1,0 +1,46 @@
+.main {
+  margin: 50px 0;
+  position: relative;
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border: 1px solid white;
+    background: #ffffff;
+  }
+
+  .fileUpload {
+    position: relative;
+    margin: 25px 0;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 1px solid #31b0d5;
+    color: #31b0d5;
+    background: black;
+    padding: 10px 25px;
+    font-weight: bold;
+  }
+
+  .fileInput {
+    opacity: 0;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) { /* example */
+  .main {
+    .file_upload > div {
+      display: none
+    }
+
+    .file_upload > button {
+      width: 100%
+    }
+  }
+}

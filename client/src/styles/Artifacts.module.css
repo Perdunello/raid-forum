@@ -13,15 +13,20 @@
   height: 80px;
 }
 .main .artifactIconWrapper:hover {
-  color: #6c757d;
+  animation: slowHover 0.2s linear;
+  color: #31b0d5;
+  border-bottom: 2px solid #31b0d5;
 }
 
 .mainWrapper {
   position: relative;
-  padding: 100px 0;
+  padding: 50px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
 }
 .mainWrapper .artifactsWrapper {
+  width: 100%;
   color: white;
   gap: 50px;
   display: flex;
@@ -40,10 +45,19 @@
   width: 120px;
   height: 120px;
 }
+.mainWrapper .artifactsWrapper .artifact .statsWrapper div:nth-child(n) {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .mainWrapper .artifactsWrapper .artifact .statsWrapper h1 {
   display: inline-block;
   margin: 15px 0;
   border-bottom: 3px solid #6c757d;
+}
+.mainWrapper .artifactsWrapper .hiddenArtifact {
+  display: block;
 }
 .mainWrapper .buttons button {
   z-index: 1;
@@ -96,6 +110,14 @@
     margin: 2% 5%;
   }
 }
+@media (width < 650px) {
+  .mainWrapper .artifactsWrapper .hiddenArtifact {
+    display: none;
+  }
+  .mainWrapper .blurWrapper {
+    display: none;
+  }
+}
 @media (width <= 1000px) {
   .mainWrapper .artifactsWrapper .images {
     width: 100px;
@@ -105,13 +127,25 @@
     border-right: 70px solid rgba(255, 255, 255, 0.6);
   }
   .mainWrapper .buttons button:nth-child(1) {
-    left: 15%;
+    top: 20%;
+    left: 10%;
   }
   .mainWrapper .buttons button:nth-child(2) {
-    right: 15%;
+    top: 20%;
+    right: 10%;
   }
   .mainWrapper .blurWrapper div {
     width: 35%;
+  }
+}
+@keyframes slowHover {
+  0% {
+    color: #6c757d;
+    border-bottom: 2px solid white;
+  }
+  100% {
+    color: #31b0d5;
+    border-bottom: 2px solid #31b0d5;
   }
 }
 

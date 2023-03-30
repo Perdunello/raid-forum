@@ -9,17 +9,18 @@ const Artifacts = () => {
     useEffect(() => {
         const id = window.location.pathname.split(`/`)[2]
         dispatch(getSetRequest(id))
-    }, [])
 
+    }, [])
     const changeSlider = (action) => {
         dispatch(slide(action))
     }
     return <div className={styles.mainWrapper}>
         <div className={styles.artifactsWrapper}>
             {
-                artifacts.slice(0, 3).map((artifact) => {
+                artifacts.slice(0, 3).map((artifact, index) => {
                     const lowerName = artifact.name.toLowerCase()
-                    return <div key={artifact.id} className={styles.artifact}>
+                    return <div key={artifact.id}
+                                className={[styles.artifact, index !== 1 ? styles.hiddenArtifact : ''].join(' ')}>
                         <div style={{marginBottom: '20px'}}>
                             {artifact.name}
                         </div>
@@ -92,6 +93,7 @@ const Artifacts = () => {
             <div></div>
             <div></div>
         </div>
+
     </div>
 }
 

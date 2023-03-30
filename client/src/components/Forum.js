@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import Messages from "./Messages";
 import {normalize} from "../date/date";
+import {Buffer} from "buffer";
 
 const socket = io("http://localhost:3001/forum");
 
@@ -63,7 +64,8 @@ const Forum = () => {
         <div className={styles.newMessageWrapper}>
             <div style={{display: 'flex', alignItems: 'center'}}>
                 <img className={styles.avatar} width={70} height={70}
-                     src="/heroes/Rotos-the-Lost-Groom/Rotos_the_Lost_Groom.png" alt=""/>
+                     src={authData.avatar ? `data:image/png;base64,${Buffer.from(authData.avatar).toString('base64')}` : "/common/simpleAvatar.png"}
+                     alt=""/>
             </div>
             <div>
                 <textarea onKeyUp={checkKeyUp} className={styles.textarea} type="text"

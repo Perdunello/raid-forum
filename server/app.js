@@ -2,6 +2,7 @@ const express = require('express')
 const heroesRouter = require('./routes/heroes.routes')
 const loginisationRouter = require('./routes/loginisation.routes')
 const socketRouter = require('./socket/socket')
+const fileUpload =require('express-fileupload')
 const PORT = process.env.PORT || 3001
 const app = express()
 const cors = require('cors')
@@ -10,6 +11,7 @@ const bodyParser = require('body-parser');
 const forumRouter = require("./routes/forum.routes");
 const artifactsRouter = require("./routes/artifacts.routes");
 
+app.use(fileUpload({}))
 app.use(bodyParser.json());
 app.use(cors())
 app.use('/champions', heroesRouter)

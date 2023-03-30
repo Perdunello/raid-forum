@@ -23,10 +23,56 @@ header {
       color: white;
       font-size: 20px;
       padding: 0 20px;
-    &:hover{
-      color:yellow;
-    }
+
+      &:hover {
+        color: yellow;
+      }
     }
   }
 
+
+  .burgerWrapper {
+    display: none;
+    align-items: center;
+    margin-right: 50px;
+
+    .burgerImage {
+      width: 50px;
+      height: 50px;
+    }
+
+    .linksBurger {
+      z-index: 2;
+      position: absolute;
+      width: 100%;
+      background: #374246;
+      border: 2px solid white;
+      border-radius: 5px 0 0 5px;
+      top: 80px;
+      right: 0;
+
+
+      .linkBurger {
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width<650px) {
+  header {
+    .links {
+      display: none;
+    }
+
+    .burgerWrapper {
+      display: flex;
+    }
+  }
 }

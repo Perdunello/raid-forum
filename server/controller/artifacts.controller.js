@@ -17,7 +17,6 @@ class ArtifactsController{
             res.header({
                 "Access-Control-Allow-Origin": "*"
             })
-            console.log(response)
             res.json(response)
         })
     }

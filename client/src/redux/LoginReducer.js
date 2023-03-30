@@ -1,8 +1,9 @@
-import {logIn, signUp} from "../api/api";
+import {getAvatar, logIn, sendAvatarUser, signUp} from "../api/api";
 import {deleteCookie, setCookie} from "../api/cookies";
 
 const SET_AUTH = 'SET_AUTH'
 const LOG_OUT = 'LOG_OUT'
+const SET_AVATAR = 'SET_AVATAR'
 
 const initialState = {
     isAuth: false,
@@ -27,16 +28,26 @@ const LoginReducer = (state = initialState, action) => {
                 isAuth: false,
                 authData: {}
             }
+        case SET_AVATAR:
+            return {
+                ...state,
+                authData: {...state.authData, avatar: action.payload}
+            }
         default:
             return state
     }
 }
+
 export const setAuth = (payload) => {
     return {type: SET_AUTH, payload}
 }
 
 export const logOut = () => {
     return {type: LOG_OUT}
+}
+
+const setAvatar = (payload) => {
+    return {type: SET_AVATAR, payload}
 }
 
 export const signUpRequest = (data) => {
@@ -64,11 +75,11 @@ export const logInRequest = (email, password) => {
     return (dispatch) => {
         logIn(email, password).then(response => {
             if (response.status === 200 && !response.data.hasOwnProperty('result')) {
-                dispatch(setAuth(response.data[0]))
-                setCookie('id', response.data[0].id, {
+                dispatch(setAuth(response.data))
+                setCookie('id', response.data.id, {
                     expires: new Date(Date.now() + 86400e3)
                 })
-                setCookie('name', response.data[0].name, {
+                setCookie('name', response.data.name, {
                     expires: new Date(Date.now() + 86400e3)
                 })
                 setCookie('email', email, {
@@ -77,6 +88,31 @@ export const logInRequest = (email, password) => {
                 setCookie('password', password, {
                     expires: new Date(Date.now() + 86400e3)
                 })
+            }
+        })
+    }
+}
+export const sendAvatarRequest = (avatar, userId) => {
+    return dispatch => {
+        sendAvatarUser(avatar, userId).then(response => {
+            if (response.status === 200) {
+                const imageFile = avatar.get('image');
+
+                const reader = new FileReader();// Create a new FileReader object
+                reader.onload = function () {// Set the onload callback function to get the buffer
+                    const bufferAvatar = reader.result;
+                    dispatch(setAvatar(bufferAvatar))//set buffer avatar
+                };
+                reader.readAsArrayBuffer(imageFile);// Read the contents of the file as an ArrayBuffer
+            }
+        })
+    }
+}
+export const getAvatarRequest = (userId) => {
+    return dispatch => {
+        getAvatar(userId).then(response => {
+            if (response.status === 200) {
+                dispatch(setAvatar(response.data.avatar))
             }
         })
     }

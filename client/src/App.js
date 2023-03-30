@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Account from "./components/Account";
 import Forum from "./components/Forum";
-import {setAuth} from "./redux/LoginReducer";
+import {getAvatarRequest, setAuth} from "./redux/LoginReducer";
 import {getCookie} from "./api/cookies";
 import Sets from "./components/Sets";
 import Footer from "./components/Fotter";
@@ -25,8 +25,9 @@ function App() {
                 id: getCookie('id'),
                 name: getCookie('name'),
                 email: getCookie('email'),
-                password: getCookie('password')
+                // password: getCookie('password')
             }))
+            dispatch(getAvatarRequest(getCookie('id')))
         }
     }, [])
     return (
